@@ -1,7 +1,9 @@
 extends KinematicBody2D
-#constants and variables
+#constants, variables and signals.
 
 var motion = Vector2()
+
+
 
 const GRAVITY = 20
 const ACCELERATION = 30
@@ -36,7 +38,7 @@ func _physics_process(_delta):
 	
 	else: 
 		$Sprite.play("idle")
-		motion.x = lerp(motion.x, 0, 0.2)
+		motion.x = lerp(motion.x, 0, 0.3)
 					
 	############################################
 	#infinite jumping patch
@@ -56,3 +58,6 @@ func _physics_process(_delta):
 	pass
 	
 	 
+
+
+
