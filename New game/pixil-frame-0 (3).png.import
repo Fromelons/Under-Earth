@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mineridle_2.png-8731d21464a8d5d02556e91ba7203393.stex"
+path="res://.import/pixil-frame-0 (3).png-1f44af19afde9a7a24ec4c7b5832abba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mineridle_2.png"
-dest_files=[ "res://.import/mineridle_2.png-8731d21464a8d5d02556e91ba7203393.stex" ]
+source_file="res://pixil-frame-0 (3).png"
+dest_files=[ "res://.import/pixil-frame-0 (3).png-1f44af19afde9a7a24ec4c7b5832abba.stex" ]
 
 [params]
 
