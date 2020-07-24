@@ -14,28 +14,30 @@ func _physics_process(_delta):
 	
 	motion.y += GRAVITY
 	var friction  = false
+	
 	if friction == true:
-		motion.x = lerp(motion.x, 0, 0.05) 
+		motion.x = lerp(ACCELERATION, 0, 0.05) 
 	#left and right controls####################                               
-	if Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("ui_right"):
 		motion.x = min(motion.x, MAX_SPEED)
 		$Sprite.play("Run")
-		$Sprite.flip_h = false;    #
+		$Sprite.flip_h = false;    
 		motion.x += ACCELERATION 
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 5000) 
-						   
+   
 	   
 	elif Input.is_action_pressed("ui_left"): 
 		$Sprite.play("Run")
-		$Sprite.flip_h = true;  #
+		$Sprite.flip_h = true;  
 		motion.x -= ACCELERATION
 		motion.x = max(motion.x, -MAX_SPEED)
 	
-							   #
+	
 	else: 
 		$Sprite.play("idle")
-		friction = true              #
+		motion.x = lerp(motion.x, 0, 0.2)
+					
 	############################################
 	#infinite jumping patch
 	if is_on_floor():
