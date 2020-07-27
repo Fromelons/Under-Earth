@@ -2,19 +2,29 @@ extends TileMap
 
 var XCave = 1
 var YCave = 1
+var CavePerCentOfMap = 1400
+var TotalTiles = 1
 
 
 
 var SelectedCell
-
+################################################
+#PROCEDURAL GENERATION
+################################################
 func CaveGen():
-	YCave = rand_range(1, 50)
-	XCave = rand_range(1, 50)
-	SelectedCell = get_cell(XCave - 1, YCave)
-	if  SelectedCell == 0:
-		print("yep, that's dirt")
-	else:
-		set_cell(XCave, YCave, -1)
+	while TotalTiles < CavePerCentOfMap:
+		
+		YCave = rand_range(1, 50)
+		XCave = rand_range(1, 50)
+		
+		if TotalTiles == 1:
+			set_cell(rand_range(1, 50), rand_range(1, 50), -1)
+			TotalTiles + 1
+		################################################
+		if get_cell(XCave - 1, YCave) == -1 or get_cell(XCave + 1, YCave) == -1 or get_cell(XCave, YCave + 1) == -1 or get_cell(XCave, YCave - 1) == -1:
+			set_cell(XCave, YCave, -1)
+			TotalTiles = TotalTiles + 1
+
 
 func _ready():
 	CaveGen()
@@ -25,6 +35,7 @@ func _ready():
 
 func _process(delta):
 	CaveGen()
+	
 	
 	if Input.is_action_pressed("right_click"):
 		var MousePos = get_global_mouse_position()
